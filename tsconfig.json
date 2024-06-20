@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/ute-chrono-curator.obsidian",
+    "target": "es2022",
+    "module": "esnext",
+    "lib": [
+      "es2022",
+    ],
+    "paths": {
+      "@home/*": [
+        "*"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@api/*": [
+        "src/app/api/*"
+      ],
+      "@interfaces/*": [
+        "src/app/interfaces/*"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@contantes/*": [
+        "src/app/contantes/*"
+      ],
+    },
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "declaration": true,
+    "moduleResolution": "node",
+  },
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ],
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

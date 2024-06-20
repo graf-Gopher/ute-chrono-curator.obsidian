@@ -1,0 +1,56 @@
+{
+  "name": "ute-chrono-curator.obsidian",
+  "title": "UTE Chrono Curator",
+  "version": "0.0.1",
+  "description": "UTE Chrono Curator - time tracker & organization module for Obsidian application",
+  "author": {
+    "name": "Under Tree Entertainment",
+    "url": "https://under-tree-e.com",
+    "email": "under-tree-e@outlook.com",
+    "twitter": "under_tree_e",
+    "linkedin": "under-tree-e"
+  },
+  "homepage": "https://github.com/under-tree-e/ute-chrono-curator.obsidian#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/under-tree-e/ute-chrono-curator.obsidian"
+  },
+  "bugs": {
+    "url": "https://github.com/under-tree-e/ute-chrono-curator.obsidian/issues"
+  },
+  "keywords": [
+    "time",
+    "timetrack",
+    "typescript",
+    "es5",
+    "obsidian"
+  ],
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "tsnd -r tsconfig-paths/register src/index.ts",
+    "prod": "node dist/build/server/index.js",
+    "---": "",
+    "load": "npm i --force",
+    "fix": "npm audit fix --force",
+    "update": "ncu --upgrade && npm run install && npm run fix",
+    "----": "",
+    "build": "npx ts-node node_scripts --build",
+    "publish": "npx ts-node node_scripts --publish",
+    "-----": "",
+    "major-update": "npm version major --no-git-tag-version",
+    "minor-update": "npm version minor --no-git-tag-version",
+    "patch-update": "npm version patch --no-git-tag-version",
+    "dev-update": "npm version prerelease --preid=dev --no-git-tag-version && git add . && git commit -m 'dev_update_'$npm_package_version && git push --all"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bestzip": "^2.2.1",
+    "clear-folder": "^5.0.0",
+    "npm-check-updates": "^16.14.14",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tslib": "^2.6.2",
+    "typescript": "~5.3.3"
+  }
+}
