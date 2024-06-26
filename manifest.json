@@ -1,0 +1,12 @@
+{
+  "id": "obsidian-crono-tracker",
+  "name": "Chrono Tracker",
+  "version": "0.0.1",
+  "minAppVersion": "1.6.3",
+  "description": "Time tracker & manager for Obsidian",
+  "helpUrl": "https://publish.obsidian.md/crono-tracker/",
+  "author": "Martin Schenck and Clare Macrae",
+  "authorUrl": "https://github.com/obsidian-tasks-group",
+  "fundingUrl": "https://github.com/sponsors/claremacrae",
+  "isDesktopOnly": false
+}
