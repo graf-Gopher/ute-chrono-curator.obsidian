@@ -1,7 +1,7 @@
 {
   "name": "ute-chrono-curator.obsidian",
   "title": "UTE Chrono Curator",
-  "version": "0.0.1",
+  "version": "0.0.2-dev.0",
   "description": "UTE Chrono Curator - time tracker & organization module for Obsidian application",
   "author": {
     "name": "Under Tree Entertainment",
