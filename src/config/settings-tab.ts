@@ -1,19 +1,27 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
-import SimpleTimeTrackerPlugin from "./main";
+import CronoCuratorPlugin from "./main";
 import {defaultSettings} from "./settings";
+import { FileNameDisplayFormatter } from "../../formatters/fileNameDisplayFormatter";
 
-export class SimpleTimeTrackerSettingsTab extends PluginSettingTab {
+export class SettingsTab extends PluginSettingTab {
 
-    plugin: SimpleTimeTrackerPlugin;
+    private plugin: CronoCuratorPlugin;
+    private filePath: string;
 
-    constructor(app: App, plugin: SimpleTimeTrackerPlugin) {
+    constructor(app: App, plugin: CronoCuratorPlugin) {
         super(app, plugin);
         this.plugin = plugin;
     }
 
     display(): void {
+      
+      
+                              const displayFormatter: FileNameDisplayFormatter =
+                                new FileNameDisplayFormatter(this.app);
+                                
+                                
         this.containerEl.empty();
-        this.containerEl.createEl("h2", {text: "Super Simple Time Tracker Settings"});
+        this.containerEl.createEl("h2", {text: "Crono Curator Settings"});
 
         new Setting(this.containerEl)
             .setName("Timestamp Display Format")
@@ -73,6 +81,30 @@ export class SimpleTimeTrackerSettingsTab extends PluginSettingTab {
                     await this.plugin.saveSettings();
                 });
             });
+            
+        new Settings(this.containerEl).setName(`File name: ${this.filePath}`).setDesc("Name or path to file to insert new time trackers.").addText(t => {
+          t.setValue(this.plugin.settings.insertToActive);
+          t.onChange(async v => {
+            this.plugin.settings.insertToActive = v;
+            await this.plugin.saveSettings();
+          });
+        });
+        
+        new Settings(this.containerEl).setName("Insert to active file").setDesc("Insert new time trackers to current file.").addToggle(t => {
+  t.setValue(this.plugin.settings.insertToActive);
+  t.onChange(async v => {
+    this.plugin.settings.insertToActive = v;
+    await this.plugin.saveSettings();
+  });
+});
+
+new Settings(this.containerEl).setName("Insert to active file").setDesc("Insert new time trackers to current file.").addToggle(t => {
+  t.setValue(this.plugin.settings.insertToActive);
+  t.onChange(async v => {
+    this.plugin.settings.insertToActive = v;
+    await this.plugin.saveSettings();
+  });
+});
 
         this.containerEl.createEl("hr");
         this.containerEl.createEl("p", {text: "If you like this plugin and want to support its development, you can do so through my website by clicking this fancy image!"});
