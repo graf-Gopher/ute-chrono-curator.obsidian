@@ -1,0 +1,19 @@
+export const defaultSettings: CCSettings = {
+    timestampFormat: "YY-MM-DD HH:mm:ss",
+    editableTimestampFormat: "YYYY-MM-DD HH:mm:ss",
+    csvDelimiter: ",",
+    fineGrainedDurations: true,
+    reverseSegmentOrder: false,
+    timestampDurations: false
+};
+
+export interface CCSettings {
+
+    timestampFormat: string;
+    editableTimestampFormat: string;
+    csvDelimiter: string;
+    fineGrainedDurations: boolean;
+    reverseSegmentOrder: boolean;
+    timestampDurations: boolean;
+
+}
