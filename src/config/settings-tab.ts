@@ -1,12 +1,12 @@
 import {App, PluginSettingTab, Setting} from "obsidian";
 import CronoCuratorPlugin from "./main";
 import {defaultSettings} from "./settings";
-import { FileNameDisplayFormatter } from "../../formatters/fileNameDisplayFormatter";
+import { FileNameDisplayFormatter } from "../formatters/fileNameDisplayFormatter";
 
 export class SettingsTab extends PluginSettingTab {
 
     private plugin: CronoCuratorPlugin;
-    private filePath: string;
+    // private filePath: string;
 
     constructor(app: App, plugin: CronoCuratorPlugin) {
         super(app, plugin);
@@ -16,7 +16,7 @@ export class SettingsTab extends PluginSettingTab {
     display(): void {
       
       
-                              const displayFormatter: FileNameDisplayFormatter =
+      const displayFormatter: FileNameDisplayFormatter =
                                 new FileNameDisplayFormatter(this.app);
                                 
                                 
@@ -82,26 +82,42 @@ export class SettingsTab extends PluginSettingTab {
                 });
             });
             
-        new Settings(this.containerEl).setName(`File name: ${this.filePath}`).setDesc("Name or path to file to insert new time trackers.").addText(t => {
-          t.setValue(this.plugin.settings.insertToActive);
+        new Settings(this.containerEl).setName(`File name: ${displayFormatter(this.plugin.settings.fileName)}`).setDesc("Name or path to file to insert new time trackers.").addText(t => {
+          t.setValue(this.plugin.settings.fileName);
           t.onChange(async v => {
-            this.plugin.settings.insertToActive = v;
+            this.plugin.settings.fileName = v;
             await this.plugin.saveSettings();
           });
         });
         
-        new Settings(this.containerEl).setName("Insert to active file").setDesc("Insert new time trackers to current file.").addToggle(t => {
-  t.setValue(this.plugin.settings.insertToActive);
+        new Settings(this.containerEl).setName("Create file if it doesnt't exist").setDesc("").addToggle(t => {
+  t.setValue(this.plugin.settings.createFile);
   t.onChange(async v => {
-    this.plugin.settings.insertToActive = v;
+    this.plugin.settings.createFile = v;
     await this.plugin.saveSettings();
   });
 });
 
-new Settings(this.containerEl).setName("Insert to active file").setDesc("Insert new time trackers to current file.").addToggle(t => {
-  t.setValue(this.plugin.settings.insertToActive);
+new Settings(this.containerEl).setName("Write to bottom of file").setDesc("Put value at the bottom of the file - otherwise at the top").addToggle(t => {
+  t.setValue(this.plugin.settings.writeToBottom);
   t.onChange(async v => {
-    this.plugin.settings.insertToActive = v;
+    this.plugin.settings.writeToBottom = v;
+    await this.plugin.saveSettings();
+  });
+});
+
+new Settings(this.containerEl).setName("Insert after").setDesc("Insert value after specified line. Accepts format syntax.").addToggle(t => {
+  t.setValue(this.plugin.settings.insertAfter);
+  t.onChange(async v => {
+    this.plugin.settings.insertAfter = v;
+    await this.plugin.saveSettings();
+  });
+});
+
+new Settings(this.containerEl).setName("").setDesc("").addText(t => {
+  t.setValue(this.plugin.settings.insertAfterLine);
+  t.onChange(async v => {
+    this.plugin.settings.insertAfterLine = v;
     await this.plugin.saveSettings();
   });
 });
