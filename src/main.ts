@@ -1,6 +1,9 @@
 import { Plugin } from "obsidian";
+import { Dashboard } from "ui/components/dashboard";
 
 export default class CronoCuratorPlugin extends Plugin {
+  
+  private ds: Dashboard = new Dashboard();
 
     private cache: Cache | undefined;
     public inlineRenderer: InlineRenderer | undefined;
@@ -15,6 +18,10 @@ export default class CronoCuratorPlugin extends Plugin {
             metadataCache: this.app.metadataCache,
             vault: this.app.vault,
             workspace: this.app.workspace,
+        });
+        
+                this.registerMarkdownCodeBlockProcessor("cc-tracker", (s, e, i) => {
+          ds.init(s);
         });
 
                 const events = new TasksEvents({ obsidianEvents: this.app.workspace });
