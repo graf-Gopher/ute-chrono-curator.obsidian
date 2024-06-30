@@ -1,7 +1,9 @@
 <script lang="ts">
   import {Dashboard as ds} from "./dashboard";
-  import Bar from 'bar.svelte';
-  import Donat from 'donat.svelte';
+  import Bar from 'charts/bar.svelte';
+  import Donat from 'charts/donat.svelte';
+  import Projects from 'lists/projects.svelte';
+  import Detail from 'lists/detail.svelte';
 </script>
 
 <h3 class="header">
@@ -11,12 +13,15 @@
 </h3>
 
 <div class="charts">
-  <Bar {...ds.data}/>
+  <Bar class="bar" {...ds.data}/>
 </div>
 
-<div class="list">
-  <List {...ds.data}/>
-  <Donat {...ds.data}/>
+<div class="projects">
+  <div class="lists">
+  <List class="list" {...ds.data}/>
+<Detail class="detail" {...ds.selected}/>    
+  </div>
+  <Donat class="donat" {...ds.data}/>
 </div>
 
 <style>
