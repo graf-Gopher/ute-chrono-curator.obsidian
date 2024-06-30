@@ -22,6 +22,8 @@ export class SettingsTab extends PluginSettingTab {
                                 
         this.containerEl.empty();
         this.containerEl.createEl("h2", {text: "Crono Curator Settings"});
+        
+        new Setting(this.containerEl).setName
 
         new Setting(this.containerEl)
             .setName("Timestamp Display Format")
