@@ -11,26 +11,11 @@
       "@home/*": [
         "*"
       ],
-      "@app/*": [
-        "src/app/*"
-      ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
-      "@api/*": [
-        "src/app/api/*"
-      ],
       "@interfaces/*": [
-        "src/app/interfaces/*"
+        "src/interfaces/*"
       ],
-      "@services/*": [
-        "src/app/services/*"
-      ],
-      "@models/*": [
-        "src/app/models/*"
-      ],
-      "@contantes/*": [
-        "src/app/contantes/*"
+      "@components/*": [
+        "src/ui/components/*"
       ],
     },
     "importHelpers": true,

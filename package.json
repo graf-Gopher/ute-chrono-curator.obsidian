@@ -43,13 +43,18 @@
     "patch-update": "npm version patch --no-git-tag-version",
     "dev-update": "npm version prerelease --preid=dev --no-git-tag-version && git add . && git commit -m 'dev_update_'$npm_package_version && git push --all"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chart.js": "^4.4.3",
+    "obsidian": "^1.5.7-1",
+    "svelte": "^4.2.18"
+  },
   "devDependencies": {
     "bestzip": "^2.2.1",
     "clear-folder": "^5.0.0",
     "npm-check-updates": "^16.14.14",
     "ts-node": "^10.9.1",
     "ts-node-dev": "^2.0.0",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "tslib": "^2.6.2",
     "typescript": "~5.3.3"
   }

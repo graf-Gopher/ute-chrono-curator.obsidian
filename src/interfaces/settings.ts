@@ -1,4 +1,5 @@
 export const defaultSettings: CCSettings = {
+    language: "en-EN",
     timestampFormat: "YY-MM-DD HH:mm:ss",
     userTimestampFormat: "YYYY-MM-DD HH:mm:ss",
     csvDelimiter: ",",
@@ -10,11 +11,11 @@ export const defaultSettings: CCSettings = {
     createFile: false,
     writeToBottom: true,
     insertAfter: false,
-    insertAfterLine: ""
+    insertAfterLine: "",
 };
 
 export interface CCSettings {
-
+    language: string;
     timestampFormat: string;
     userTimestampFormat: string;
     csvDelimiter: string;
@@ -27,5 +28,4 @@ export interface CCSettings {
     writeToBottom: boolean;
     insertAfter: boolean;
     insertAfterLine: string;
-
 }
